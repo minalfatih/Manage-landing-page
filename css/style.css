@@ -1,0 +1,325 @@
+:root {
+  --Bright-Red: hsl(12, 88%, 59%);
+  --Dark-Blue: hsl(228, 39%, 23%);
+  --Dark-Grayish-Blue: hsl(227, 12%, 61%);
+  --Very-Dark-Blue: hsl(233, 12%, 13%);
+  --Very-Pale-Red: hsl(13, 100%, 96%);
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+}
+#special {
+  background-color: var(--Bright-Red);
+  color: var(--Very-Light-Gray);
+  padding: 10px 35px;
+  box-shadow: 0 5px 10px 0px hsl(12deg 88% 59% / 50%);
+  transition: 0.3s linear;
+}
+#special:hover {
+  opacity: 0.8;
+}
+main {
+  position: relative;
+}
+main::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to top, #000000c2, #000000cc, transparent);
+  opacity: 0;
+  transition: 0.5s linear;
+  z-index: -1;
+}
+main.active::after {
+  opacity: 1;
+  z-index: 1;
+}
+.title h1 {
+  color: var(--Dark-Blue);
+  font-size: 45px;
+}
+.btn {
+  position: relative;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 0%;
+  height: 100%;
+}
+.btn:hover::after {
+  width: 100%;
+}
+@media (max-width: 990px) {
+  .title h1 {
+    font-size: 35px;
+  }
+  .navbar-collapse {
+    position: absolute;
+    top: 89px;
+    left: 0;
+    width: 100%;
+  }
+}
+.title p,
+.testimonial .box blockquote {
+  color: var(--Dark-Grayish-Blue);
+  line-height: 1.6;
+}
+@media (max-width: 990px) {
+  nav .navbar-collapse {
+    background-color: white;
+  }
+}
+nav .navbar-nav .nav-item .nav-link {
+  color: var(--Dark-Blue);
+  font-weight: bold;
+}
+nav .navbar-nav .nav-item .nav-link:hover {
+  color: var(--Dark-Grayish-Blue);
+}
+nav .navbar-toggler .close {
+  display: none;
+}
+nav .navbar-toggler.active .humburger {
+  display: none;
+}
+nav .navbar-toggler.active .close {
+  display: block;
+}
+.home .background {
+  position: absolute;
+  top: -15rem;
+  right: -10rem;
+  z-index: -1;
+}
+.home .title p {
+  width: 75%;
+}
+@media (max-width: 990px) {
+  .home .title p {
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .home .background {
+    top: -5rem;
+    right: -30rem;
+  }
+  .home .background img {
+    width: 50%;
+  }
+}
+.about .background {
+  position: absolute;
+  bottom: -25rem;
+  left: -25rem;
+  z-index: -1;
+}
+@media (max-width: 767px) {
+  .about .background {
+    left: 30rem;
+    right: -35rem;
+    bottom: 60rem;
+  }
+  .about .background img {
+    width: 50%;
+  }
+}
+@media (max-width: 576px) {
+  .about .background {
+    left: 8rem;
+  }
+}
+.about .row > .title div {
+  width: 400px;
+}
+@media (max-width: 990px) {
+  .about .row > .title div {
+    width: 100%;
+  }
+}
+.about .info ul li .num {
+  background-color: var(--Bright-Red);
+  height: fit-content;
+}
+.about .info ul li .title {
+  display: grid;
+  grid-template-columns: 18% auto;
+  grid-template-areas: "num text" "num pragraph";
+}
+.about .info ul li .title .num {
+  grid-area: num;
+  width: 65px;
+}
+.about .info ul li .title p:nth-child(2) {
+  grid-area: text;
+  margin-top: 8px;
+  position: relative;
+}
+@media (max-width: 990px) {
+  .about .info ul li .title {
+    grid-template-columns: 13% auto;
+    grid-template-areas: "num text" "pragraph pragraph";
+  }
+  .about .info ul li .title p:nth-child(2)::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: -40px;
+    background-color: var(--Very-Pale-Red);
+    width: 100%;
+    height: 120%;
+    z-index: -1;
+  }
+}
+@media (max-width: 767px) {
+  .about .info ul li .title {
+    grid-template-columns: 18% auto;
+    grid-template-areas: "num text" "pragraph pragraph";
+  }
+}
+@media (max-width: 576px) {
+  .about .info ul li .title {
+    grid-template-columns: 25% auto;
+    grid-template-areas: "num text" "pragraph pragraph";
+  }
+  .about .info ul li .title p:nth-child(2)::after {
+    width: 130%;
+  }
+}
+.about .info ul li .title p:last-child {
+  grid-area: pragraph;
+}
+.about .info ul li .title p:nth-child(2),
+.testimonial .box p {
+  color: var(--Dark-Blue);
+  font-weight: bold;
+}
+.testimonial .box-scroll {
+  overflow: auto;
+  scrollbar-color: var(--Very-Light-Gray) transparent;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+}
+.testimonial .row {
+  min-width: 250vh;
+}
+.testimonial .box {
+  background-color: var(--Very-Light-Gray);
+  width: 442px;
+}
+.testimonial .box .image {
+  width: 18%;
+  top: -15%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.start {
+  background-color: var(--Bright-Red);
+  background-image: url(../images/bg-simplify-section-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position: 12rem -8rem;
+}
+.start .row {
+  height: 15rem;
+}
+.start .row div a {
+  color: var(--Bright-Red) !important;
+}
+@media (max-width: 990px) {
+  .start {
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/bg-simplify-section-mobile.svg);
+    background-size: contain;
+    background-position: left bottom;
+  }
+  .start .row {
+    height: 10rem;
+  }
+  .start .row .text h1 {
+    font-size: 35px;
+  }
+}
+footer {
+  background-color: var(--Very-Dark-Blue);
+  min-height: 20rem;
+}
+footer div:not(form .box) {
+  min-height: calc(20rem - 160px);
+}
+footer .social .icons li a:hover svg path {
+  fill: var(--Bright-Red);
+  transition: 0.3s linear;
+}
+footer .links ul li a:hover {
+  color: var(--Bright-Red) !important;
+  transition: 0.3s linear;
+}
+footer .update form input[type="text"] {
+  width: 270px;
+  padding: 15px 20px;
+  border: 1px solid transparent;
+  outline: none;
+  color: var(--Dark-Blue);
+  caret-color: var(--Bright-Red);
+}
+footer .update form input[type="text"]:focus {
+  border: 1px solid var(--Bright-Red) !important;
+}
+footer .update form input[type="text"].error-active {
+  color: rgb(255 62 49);
+  border-color: rgb(255 62 49);
+}
+footer .update form input[type="submit"] {
+  background-color: var(--Bright-Red);
+  width: 75px;
+  height: 55px;
+  transition: 0.3s linear;
+}
+footer .update form input[type="submit"]:hover {
+  background-color: hsl(11.45deg 91.61% 71.96%);
+}
+footer .update p {
+  color: var(--Dark-Grayish-Blue);
+}
+@media (max-width: 990px) {
+  footer .container {
+    flex-direction: column-reverse;
+    align-items: center !important;
+  }
+  footer .social {
+    flex-direction: column-reverse !important;
+    justify-content: space-around !important;
+  }
+  footer .update {
+    align-items: center !important;
+    min-height: 100px !important;
+  }
+  footer .update p {
+    position: absolute;
+    bottom: 0;
+  }
+}
+@media (max-width: 576px) {
+  footer .social {
+    width: 100%;
+    align-items: center;
+  }
+  footer .social .icons {
+    width: 100%;
+    justify-content: space-between;
+  }
+  footer .links {
+    justify-content: space-between !important;
+  }
+}
